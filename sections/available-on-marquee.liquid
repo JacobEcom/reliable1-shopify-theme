@@ -1,0 +1,201 @@
+{{ 'section-available-on-marquee.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign repeat_count = 12
+  assign has_amazon = false
+  if section.settings.amazon_label != blank
+    assign has_amazon = true
+  endif
+  assign has_walmart = false
+  if section.settings.walmart_label != blank
+    assign has_walmart = true
+  endif
+-%}
+
+<div class="available-on-marquee section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+  <p class="visually-hidden">
+    {{ section.settings.heading }}
+    {%- if has_amazon %} {{ section.settings.amazon_label }}{% endif -%}
+    {%- if has_walmart %} {{ section.settings.walmart_label }}{% endif -%}
+  </p>
+  <div class="available-on-marquee__viewport" aria-hidden="true" style="--marquee-duration: {{ section.settings.speed }}s;">
+    <div class="available-on-marquee__track">
+      {%- for group in (1..2) -%}
+        <div class="available-on-marquee__group">
+          {%- for i in (1..repeat_count) -%}
+            {%- if section.settings.heading != blank -%}
+              <span class="available-on-marquee__item available-on-marquee__item--text{% if section.settings.bold_text %} available-on-marquee__item--bold{% endif %}">
+                {{ section.settings.heading }}
+              </span>
+            {%- endif -%}
+            {%- if has_amazon -%}
+              {%- assign amazon_tag = 'span' -%}
+              {%- if section.settings.amazon_url != blank -%}
+                {%- assign amazon_tag = 'a' -%}
+              {%- endif -%}
+              <{{ amazon_tag }}
+                class="available-on-marquee__item"
+                {% if section.settings.amazon_url != blank %}
+                  href="{{ section.settings.amazon_url }}" target="_blank" rel="noopener" tabindex="-1"
+                {% endif %}
+              >
+                <span class="available-on-marquee__icon">
+                  {%- if section.settings.amazon_image -%}
+                    <img
+                      src="{{ section.settings.amazon_image | image_url: width: 100 }}"
+                      alt="{{ section.settings.amazon_image.alt | default: section.settings.amazon_label | escape }}"
+                      width="{{ section.settings.amazon_image.width }}"
+                      height="{{ section.settings.amazon_image.height }}"
+                      loading="lazy"
+                    >
+                  {%- else -%}
+                    {{- 'icon-amazon.svg' | inline_asset_content -}}
+                  {%- endif -%}
+                </span>
+                <span class="available-on-marquee__label">{{ section.settings.amazon_label | escape }}</span>
+              </{{ amazon_tag }}>
+            {%- endif -%}
+            {%- if has_walmart -%}
+              {%- assign walmart_tag = 'span' -%}
+              {%- if section.settings.walmart_url != blank -%}
+                {%- assign walmart_tag = 'a' -%}
+              {%- endif -%}
+              <{{ walmart_tag }}
+                class="available-on-marquee__item"
+                {% if section.settings.walmart_url != blank %}
+                  href="{{ section.settings.walmart_url }}" target="_blank" rel="noopener" tabindex="-1"
+                {% endif %}
+              >
+                <span class="available-on-marquee__icon">
+                  {%- if section.settings.walmart_image -%}
+                    <img
+                      src="{{ section.settings.walmart_image | image_url: width: 100 }}"
+                      alt="{{ section.settings.walmart_image.alt | default: section.settings.walmart_label | escape }}"
+                      width="{{ section.settings.walmart_image.width }}"
+                      height="{{ section.settings.walmart_image.height }}"
+                      loading="lazy"
+                    >
+                  {%- else -%}
+                    {{- 'icon-walmart.svg' | inline_asset_content -}}
+                  {%- endif -%}
+                </span>
+                <span class="available-on-marquee__label">{{ section.settings.walmart_label | escape }}</span>
+              </{{ walmart_tag }}>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Available on marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Repeating text",
+      "default": "Available on..."
+    },
+    {
+      "type": "checkbox",
+      "id": "bold_text",
+      "label": "Bold repeating text",
+      "default": false
+    },
+    {
+      "type": "url",
+      "id": "amazon_url",
+      "label": "Amazon URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "amazon_image",
+      "label": "Amazon logo",
+      "info": "Defaults to the Amazon logo if none is uploaded."
+    },
+    {
+      "type": "text",
+      "id": "amazon_label",
+      "label": "Amazon label",
+      "default": "Amazon"
+    },
+    {
+      "type": "url",
+      "id": "walmart_url",
+      "label": "Walmart URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "walmart_image",
+      "label": "Walmart logo",
+      "info": "Defaults to the Walmart logo if none is uploaded."
+    },
+    {
+      "type": "text",
+      "id": "walmart_label",
+      "label": "Walmart label",
+      "default": "Walmart"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll speed (lower is faster)",
+      "default": 25
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Available on marquee"
+    }
+  ]
+}
+{% endschema %}

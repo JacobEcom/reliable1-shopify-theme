@@ -1,0 +1,70 @@
+{% comment %}
+  Renders an "Available on..." row with retailer logo + label links (Amazon, Walmart).
+
+  Accepts:
+  - block: {Object} Block Liquid object with settings:
+    - heading: {String}
+    - amazon_url: {Url}
+    - amazon_image: {Image}
+    - amazon_label: {String}
+    - walmart_url: {Url}
+    - walmart_image: {Image}
+    - walmart_label: {String}
+
+  Usage:
+  {% render 'available-on', block: block %}
+{% endcomment %}
+
+{%- if block.settings.amazon_url != blank or block.settings.walmart_url != blank -%}
+  <div class="product__available-on" {{ block.shopify_attributes }}>
+    {%- if block.settings.heading != blank -%}
+      <p class="product__available-on-heading">{{ block.settings.heading | escape }}</p>
+    {%- endif -%}
+    <div class="product__available-on-buttons">
+      {%- if block.settings.amazon_url != blank -%}
+        <a href="{{ block.settings.amazon_url }}" class="available-on-item" target="_blank" rel="noopener">
+          <span class="available-on-item__icon">
+            {%- if block.settings.amazon_image -%}
+              <img
+                srcset="
+                  {{ block.settings.amazon_image | image_url: width: 100 }} 1x,
+                  {{ block.settings.amazon_image | image_url: width: 200 }} 2x
+                "
+                src="{{ block.settings.amazon_image | image_url: width: 100 }}"
+                alt="{{ block.settings.amazon_image.alt | default: block.settings.amazon_label | escape }}"
+                width="{{ block.settings.amazon_image.width }}"
+                height="{{ block.settings.amazon_image.height }}"
+                loading="lazy"
+              >
+            {%- else -%}
+              {{- 'icon-amazon.svg' | inline_asset_content -}}
+            {%- endif -%}
+          </span>
+          <span class="available-on-item__label">{{ block.settings.amazon_label | default: 'Amazon' | escape }}</span>
+        </a>
+      {%- endif -%}
+      {%- if block.settings.walmart_url != blank -%}
+        <a href="{{ block.settings.walmart_url }}" class="available-on-item" target="_blank" rel="noopener">
+          <span class="available-on-item__icon">
+            {%- if block.settings.walmart_image -%}
+              <img
+                srcset="
+                  {{ block.settings.walmart_image | image_url: width: 100 }} 1x,
+                  {{ block.settings.walmart_image | image_url: width: 200 }} 2x
+                "
+                src="{{ block.settings.walmart_image | image_url: width: 100 }}"
+                alt="{{ block.settings.walmart_image.alt | default: block.settings.walmart_label | escape }}"
+                width="{{ block.settings.walmart_image.width }}"
+                height="{{ block.settings.walmart_image.height }}"
+                loading="lazy"
+              >
+            {%- else -%}
+              {{- 'icon-walmart.svg' | inline_asset_content -}}
+            {%- endif -%}
+          </span>
+          <span class="available-on-item__label">{{ block.settings.walmart_label | default: 'Walmart' | escape }}</span>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}

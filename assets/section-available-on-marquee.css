@@ -1,0 +1,79 @@
+.available-on-marquee {
+  overflow: hidden;
+}
+
+.available-on-marquee__viewport {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.available-on-marquee__track {
+  display: flex;
+  width: max-content;
+}
+
+.available-on-marquee__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  animation: available-on-marquee-scroll var(--marquee-duration, 25s) linear infinite;
+}
+
+.available-on-marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 2.5rem;
+  white-space: nowrap;
+  font-weight: 700;
+  text-decoration: none;
+  color: currentColor;
+}
+
+.available-on-marquee__item--text {
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.available-on-marquee__item--text.available-on-marquee__item--bold {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.available-on-marquee__icon {
+  display: flex;
+  align-items: center;
+  height: 1.8rem;
+}
+
+.available-on-marquee__icon img,
+.available-on-marquee__icon svg {
+  height: 100%;
+  width: auto;
+  max-width: 8rem;
+  display: block;
+}
+
+@keyframes available-on-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.available-on-marquee:hover .available-on-marquee__group {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .available-on-marquee__group {
+    animation: none;
+  }
+
+  .available-on-marquee__viewport {
+    overflow-x: auto;
+  }
+}

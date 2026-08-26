@@ -1,0 +1,179 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/R1_Home_Hero_ec1c4b95-f639-4ffa-ab91-944f05356372.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "available_on_marquee": {
+      "type": "available-on-marquee",
+      "settings": {
+        "heading": "Available on...",
+        "bold_text": false,
+        "amazon_url": "",
+        "amazon_image": "",
+        "amazon_label": "Amazon",
+        "walmart_url": "",
+        "walmart_image": "",
+        "walmart_label": "Walmart",
+        "speed": 25,
+        "color_scheme": "scheme-1",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    },
+    "multirow_whVPhg": {
+      "type": "multirow",
+      "blocks": {
+        "row_F9Pwyw": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/R1_NasalRelief_Nav_20c12f50-7c5f-427b-a00b-25e11f1f7336.webp",
+            "caption": "",
+            "heading": "Soothing America's Noses for Over 115 Years.",
+            "product": "boroleum-soothing-nasal-ointment",
+            "text": "",
+            "button_label": "Explore",
+            "button_link": "shopify://products/boroleum-soothing-nasal-ointment"
+          }
+        },
+        "row_g9xWxg": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/R1_Cough_Nav.webp",
+            "caption": "",
+            "heading": "From 'Clogged & Coughing' to All-Clear.",
+            "collection": "cough-cold",
+            "text": "",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/cough-cold"
+          }
+        },
+        "row_trCXqg": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/R1_Children_Nav.webp",
+            "caption": "",
+            "heading": "Relief for Little Ones. Peace of Mind for You.",
+            "collection": "children",
+            "text": "",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/children"
+          }
+        },
+        "row_4fpMBe": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/R1_Eye_Nav.webp",
+            "caption": "Caption",
+            "heading": "Row",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        },
+        "row_r6dpiD": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/R1_Gut_Nav.webp",
+            "caption": "",
+            "heading": "A Better Day Starts With a Calm Stomach.",
+            "collection": "a-better-day-starts-with-a-calm-stomach",
+            "text": "",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/a-better-day-starts-with-a-calm-stomach"
+          }
+        },
+        "row_ppLYJV": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/R1_Pain_Nav_9fb73d94-2071-41d5-9f32-7b59b431b1e8.webp",
+            "caption": "",
+            "heading": "Dependable Relief That Keeps You Moving.",
+            "collection": "pain-motion-sickness",
+            "text": "",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/pain-motion-sickness"
+          }
+        },
+        "row_6L3iJP": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/R1_Sensitive_Nav.webp",
+            "caption": "",
+            "heading": "Soothing Care for Your Most Sensitive Areas.",
+            "collection": "sensitive-skin",
+            "text": "",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/sensitive-skin"
+          }
+        },
+        "row_aP3qdD": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/R1_Vitamin_Nav.webp",
+            "caption": "",
+            "heading": "Simple, Daily Aid for a Healthier You.",
+            "collection": "vitamins-supplements",
+            "text": "",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/vitamins-supplements"
+          }
+        }
+      },
+      "block_order": [
+        "row_F9Pwyw",
+        "row_g9xWxg",
+        "row_trCXqg",
+        "row_4fpMBe",
+        "row_r6dpiD",
+        "row_ppLYJV",
+        "row_6L3iJP",
+        "row_aP3qdD"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h2",
+        "show_rating": true,
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "scheme-1",
+        "row_color_scheme": "scheme-1",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "available_on_marquee",
+    "multirow_whVPhg"
+  ]
+}

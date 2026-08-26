@@ -1,0 +1,44 @@
+.product__available-on {
+  margin-bottom: 1.5rem;
+}
+
+.product__available-on-heading {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.product__available-on-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.available-on-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: currentColor;
+}
+
+.available-on-item__icon {
+  display: block;
+  height: 4.4rem;
+}
+
+.available-on-item__icon img,
+.available-on-item__icon svg {
+  max-height: 100%;
+  max-width: 12rem;
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.available-on-item__label {
+  font-weight: 700;
+  text-align: center;
+}

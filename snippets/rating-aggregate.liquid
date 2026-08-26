@@ -1,0 +1,101 @@
+{% comment %}
+  Renders a review star rating + count, styled identically to the product page rating
+  (same markup/classes as the 'rating' block in sections/main-product.liquid and
+  the rating shown on product cards).
+
+  Reads the standard `reviews.rating` / `reviews.rating_count` product metafields.
+
+  Accepts:
+  - rating_product: {Object} Product to source a single product's rating from (optional)
+  - rating_collection: {Object} Collection to average ratings across all its products (optional)
+
+  If both are given, rating_product takes priority. Renders nothing if no rating data is found.
+
+  Usage:
+  {% render 'rating-aggregate', rating_product: block.settings.product %}
+  {% render 'rating-aggregate', rating_collection: block.settings.collection %}
+{% endcomment %}
+
+{%- liquid
+  assign reviews_ns = settings.reviews_rating_namespace | default: 'reviews'
+  assign reviews_rating_key = settings.reviews_rating_key | default: 'rating'
+  assign reviews_count_key = settings.reviews_rating_count_key | default: 'rating_count'
+  assign default_scale_max = settings.reviews_rating_scale_max | default: 5
+
+  assign avg_rating = 0
+  assign scale_max = default_scale_max
+  assign rating_count = 0
+
+  if rating_product
+    assign product_rating_metafield = rating_product.metafields[reviews_ns][reviews_rating_key]
+    assign product_rating_value = blank
+    if product_rating_metafield.type == 'rating'
+      assign product_rating_value = product_rating_metafield.value.rating
+      assign scale_max = product_rating_metafield.value.scale_max
+    elsif product_rating_metafield.value != blank
+      assign product_rating_value = product_rating_metafield.value
+    endif
+  endif
+
+  if rating_product and product_rating_value != blank
+    assign avg_rating = product_rating_value
+    assign rating_count = rating_product.metafields[reviews_ns][reviews_count_key] | default: 0
+  elsif rating_collection
+    assign weighted_total = 0
+    for product in rating_collection.products limit: 250
+      assign this_rating_metafield = product.metafields[reviews_ns][reviews_rating_key]
+      assign this_rating_value = blank
+      assign this_scale_max = default_scale_max
+      if this_rating_metafield.type == 'rating'
+        assign this_rating_value = this_rating_metafield.value.rating
+        assign this_scale_max = this_rating_metafield.value.scale_max
+      elsif this_rating_metafield.value != blank
+        assign this_rating_value = this_rating_metafield.value
+      endif
+      if this_rating_value != blank
+        assign product_count = product.metafields[reviews_ns][reviews_count_key] | default: 0
+        if product_count > 0
+          assign product_weighted = this_rating_value | times: product_count
+          assign weighted_total = weighted_total | plus: product_weighted
+          assign rating_count = rating_count | plus: product_count
+          assign scale_max = this_scale_max
+        endif
+      endif
+    endfor
+    if rating_count > 0
+      assign avg_rating = weighted_total | divided_by: rating_count | round: 1
+    endif
+  endif
+-%}
+
+{%- if rating_count > 0 -%}
+  {%- liquid
+    assign rating_decimal = 0
+    assign decimal = avg_rating | modulo: 1
+    if decimal >= 0.3 and decimal <= 0.7
+      assign rating_decimal = 0.5
+    elsif decimal > 0.7
+      assign rating_decimal = 1
+    endif
+  -%}
+  <div class="rating-wrapper">
+    <div
+      class="rating"
+      role="img"
+      aria-label="{{ 'accessibility.star_reviews_info' | t: rating_value: avg_rating, rating_max: scale_max }}"
+    >
+      <span
+        aria-hidden="true"
+        class="rating-star"
+        style="--rating: {{ avg_rating | floor }}; --rating-max: {{ scale_max }}; --rating-decimal: {{ rating_decimal }}; --letter-spacing: 0.8; --font-size: 1.7;"
+      ></span>
+    </div>
+    <p class="rating-text caption">
+      <span aria-hidden="true">{{ avg_rating }} / {{ scale_max }}</span>
+    </p>
+    <p class="rating-count caption">
+      <span aria-hidden="true">({{ rating_count }})</span>
+      <span class="visually-hidden">{{ rating_count }} {{ 'accessibility.total_reviews' | t }}</span>
+    </p>
+  </div>
+{%- endif -%}
