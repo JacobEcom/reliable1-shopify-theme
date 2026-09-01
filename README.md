@@ -301,7 +301,7 @@ For developers reviewing the repository, these components are good starting poin
 
 ### Collection Social Proof
 
-[**View the Modded Multirow Section for Propaqgating Collection-Level Reviews →**](https://github.com/JacobEcom/reliable1-shopify-theme/blob/main/sections/multirow.liquid)
+[**View the Modded Multirow Section for Propagating Collection-Level Reviews →**](https://github.com/JacobEcom/reliable1-shopify-theme/blob/main/sections/multirow.liquid)
 
 ### Amazon + Walmart Marquee
 
