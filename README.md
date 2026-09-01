@@ -257,17 +257,17 @@ Dawn theme customization · Custom Liquid/theme development · Custom collection
 
 ---
 
-# Broader Ecommerce Results
+# Ecommerce Results
 
 Reliable-1 is one of Ecom Optimization's longest-standing clients.
 
-Our broader ecommerce and conversion work with the brand produced a:
+Our ecommerce and conversion work with the brand produced a:
 
 # 6.8X Increase in Daily Sales in 23 Days
 
 The growth followed work focused on product positioning, information hierarchy, trust development, customer education, and purchase confidence.
 
-Those same conversion principles informed this Shopify build.
+The very same conversion principles that informed this Shopify build.
 
 ---
 
