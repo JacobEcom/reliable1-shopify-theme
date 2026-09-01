@@ -269,8 +269,6 @@ The growth followed work focused on product positioning, information hierarchy, 
 
 Those same conversion principles informed this Shopify build.
 
-> **Performance Attribution:** The 6.8X result reflects Ecom Optimization's broader ecommerce work with Reliable-1. The Shopify storefront shown here has not yet launched as the brand's active DTC sales channel and therefore has no attributed Shopify sales results at this stage.
-
 ---
 
 # Technical Stack
