@@ -204,7 +204,7 @@ A custom-coded scrolling marquee communicates that Reliable-1 products are also 
 
 The component includes continuous scrolling, clickable marketplace destinations, and hover-to-pause interaction so shoppers can stop the marquee and select a destination.
 
-Amazon destinations can also support eligible Brand Referral Bonus tracking.
+Amazon destinations can also support Amazon Attribution Links  for tracking and the Brand Referral Bonus program that gives you up to 10% back on sales made using that link.
 
 
 ![Amazon and Walmart Marquee](docs/marketplace-marquee.jpg)
@@ -301,31 +301,17 @@ For developers reviewing the repository, these components are good starting poin
 
 ### Collection Social Proof
 
-`[JACOB — ADD CLICKABLE FILE PATH / LINKS]`
+[**View the Modded Multirow Section for Propaqgating Collection-Level Reviews →**](https://github.com/JacobEcom/reliable1-shopify-theme/blob/main/sections/multirow.liquid)
 
 ### Amazon + Walmart Marquee
 
-`[JACOB — ADD CLICKABLE FILE PATH / LINKS]`
+[**View the Custom Amazon + Walmart Marquee →**](https://github.com/JacobEcom/reliable1-shopify-theme/blob/main/sections/available-on-marquee.liquid)
 
 ### Marketplace PDP Buttons
 
-`[JACOB — ADD CLICKABLE FILE PATH / LINKS]`
+[**View the Custom Amazon + Walmart PDP Buttons →**](https://github.com/JacobEcom/reliable1-shopify-theme/blob/main/snippets/available-on.liquid)
 
-### Custom Collection Presentation
 
-`[JACOB — ADD CLICKABLE FILE PATH / LINKS]`
-
-<!--
-JACOB:
-
-Where possible, make each entry a clickable relative GitHub link.
-
-Example:
-
-[`sections/marketplace-marquee.liquid`](sections/marketplace-marquee.liquid)
-
-If a different component is technically more impressive than one listed above, substitute it.
--->
 
 ---
 
@@ -345,40 +331,3 @@ Conversion strategy determines whether customers care.
 https://reliable-1-laboratories-vj8b0pje.myshopify.com/
 
 **Password:** 'nahflo'
-
-\*The 6.8X result reflects our broader ecommerce work where we have taken these principals and applied them all of their ecommerce pat.
-
-<!--
-FINAL JACOB CHECKLIST
-
-3. Review exported theme files before making repository public.
-Pay particular attention to:
-- config/settings_data.json
-- App configuration
-- API keys/tokens
-- Tracking/configuration values
-- Private comments
-- Client-sensitive information
-- Anything that should not be public
-
-4. Verify technical stack.
-
-5. Populate Featured Code with direct relative links to the best files.
-
-6. Confirm Amazon Brand Referral Bonus implementation is described accurately.
-
-7. Verify every /docs image filename and capitalization exactly matches the README.
-
-8. Eventually create the separate Amazon Review Porting System / Chrome Extension repository.
-
-9. Replace the review-system repository placeholder with the public URL.
-
-10. Review the entire public repository while logged out:
-- README rendering
-- Images
-- Live Shopify demo
-- Password
-- Featured Code links
-- No unfinished placeholders
-- No sensitive files/data
--->
