@@ -181,7 +181,9 @@ The system supports social proof at multiple stages of the funnel, including pro
 
 ![Custom Review Porting System](docs/review-system.jpg)
 
-**Technical Repository:** `[ADD REVIEW SYSTEM REPOSITORY LINK WHEN AVAILABLE]`
+### Technical Repository
+
+[**View the Custom Amazon Review Porting System →**](https://github.com/JacobEcom/shopify-amazon-review-porting-system)
 
 ---
 
@@ -295,7 +297,7 @@ For developers reviewing the repository, these components are good starting poin
 
 ### Amazon Review Integration
 
-`[JACOB — ADD CLICKABLE FILE PATH / LINKS]`
+[**View the Custom Amazon Review Porting System →**](https://github.com/JacobEcom/shopify-amazon-review-porting-system)
 
 ### Collection Social Proof
 
