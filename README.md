@@ -102,7 +102,7 @@ The collection-navigation system uses bright, visually distinct category creativ
 
 Each category combines:
 
-**Visual identification → Emotional sales hook → Social proof**
+**Visual identification → Emotional sales hook → Social proof (through reviews)**
 
 The customer can quickly recognize where they need to go while receiving another reason to continue deeper into the shopping journey.
 
